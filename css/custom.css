@@ -1,5 +1,9 @@
-.row, .total-price-label, #total-price {
-  border: 1px solid black;
+.cart-title, .total-price-wrap {
+  margin-bottom: 20px !important;
+  padding: 0;
+}
+
+.row {
   text-align: center;
 }
 
@@ -8,9 +12,7 @@
   margin: 0;
 }
 
-.total-price-label, #total-price {
-  display: inline-block;
+h1 {
+  margin: 10px 0;
+  color: gray;
 }
-
-
-
