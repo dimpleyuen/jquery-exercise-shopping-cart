@@ -1,0 +1,16 @@
+.row, .total-price-label, #total-price {
+  border: 1px solid black;
+  text-align: center;
+}
+
+.cart-title, .item-name, .total-price-wrap {
+  text-align: left;
+  margin: 0;
+}
+
+.total-price-label, #total-price {
+  display: inline-block;
+}
+
+
+
