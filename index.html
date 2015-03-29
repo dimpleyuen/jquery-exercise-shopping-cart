@@ -12,6 +12,8 @@
 
     <script src="js/application.js"></script>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/custom.css" rel="stylesheet">
   </head>
@@ -21,184 +23,199 @@
         <!-- <div class="cart-title col-xs-6 col-xs-offset-3"> -->
           <h1>
           Shopping Cart
+          <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>
           </h1>
         <!-- </div> -->
       </div>
       <br>
       <br>
       <br>
-      <div class="row row-first">
-        <div class="item-name col-xs-2">
+      <div class="row">
+        <div class="item-name col-xs-3">
           Salmon
         </div>
-        <div class="item-price col-xs-3" id="item-price1">
+        <div class="item-price col-xs-2" id="item-price">
           $60.00
         </div>
-        <div class="item-qty col-xs-5">
+        <div class="item-qty col-xs-7 col-sm-5">
           <label>QTY</label>
-          <input class="quantity" id="item-qty1">
-          <button class="cancel1">
+          <input class="quantity" id="item-qty">
+          <button class="cancel">
             Cancel
           </button>
         </div>
-        <div class="sub-total-wrap col-xs-2">
-          <div class="sub-total" id="subtotal1">$0.00</div>
+        <div class="sub-total-wrap hidden-xs col-sm-2">
+          <div class="sub-total" id="subtotal">$0.00</div>
         </div>
       </div>
       <div class="row">
-        <div class="item-name col-xs-2">
+        <div class="item-name col-xs-3">
           Tuna
         </div>
-        <div class="item-price col-xs-3" id="item-price2">
+        <div class="item-price col-xs-2" id="item-price">
           $50.00
         </div>
-        <div class="item-qty col-xs-5">
+        <div class="item-qty col-xs-7 col-sm-5">
           <label>QTY</label>
-          <input class="quantity" id="item-qty2">
-          <button class="cancel2">
+          <input class="quantity" id="item-qty">
+          <button class="cancel">
             Cancel
           </button>
         </div>
-        <div class="sub-total-wrap col-xs-2">
-          <div class="sub-total" id="subtotal2">$0.00</div>
+        <div class="sub-total-wrap hidden-xs col-sm-2">
+          <div class="sub-total" id="subtotal">$0.00</div>
         </div>
       </div>
       <div class="row">
-        <div class="item-name col-xs-2">
+        <div class="item-name col-xs-3">
           Carp
         </div>
-        <div class="item-price col-xs-3">
+        <div class="item-price col-xs-2">
           $40.00
         </div>
-        <div class="item-qty col-xs-5">
+        <div class="item-qty col-xs-7 col-sm-5">
           <label>QTY</label>
           <input class="quantity">
           <button class="cancel">
             Cancel
           </button>
         </div>
-        <div class="sub-total-wrap col-xs-2">
-          <div class="sub-total" id="subtotal3">$0.00</div>
+        <div class="sub-total-wrap hidden-xs col-sm-2">
+          <div class="sub-total" id="subtotal">$0.00</div>
         </div>
       </div>
       <div class="row">
-        <div class="item-name col-xs-2">
+        <div class="item-name col-xs-3">
           Pork
         </div>
-        <div class="item-price col-xs-3">
+        <div class="item-price col-xs-2">
           $50.00
         </div>
-        <div class="item-qty col-xs-5">
+        <div class="item-qty col-xs-7 col-sm-5">
           <label>QTY</label>
           <input class="quantity">
           <button class="cancel">
             Cancel
           </button>
         </div>
-        <div class="sub-total-wrap col-xs-2">
-          <div class="sub-total" id="subtotal4">$0.00</div>
+        <div class="sub-total-wrap hidden-xs col-sm-2">
+          <div class="sub-total" id="subtotal">$0.00</div>
         </div>
       </div>
       <div class="row">
-        <div class="item-name col-xs-2">
+        <div class="item-name col-xs-3">
           Beef
         </div>
-        <div class="item-price col-xs-3">
+        <div class="item-price col-xs-2">
           $40.00
         </div>
-        <div class="item-qty col-xs-5">
+        <div class="item-qty col-xs-7 col-sm-5">
           <label>QTY</label>
           <input class="quantity">
           <button class="cancel">
             Cancel
           </button>
         </div>
-        <div class="sub-total-wrap col-xs-2">
-          <div class="sub-total" id="subtotal5">$0.00</div>
+        <div class="sub-total-wrap hidden-xs col-sm-2">
+          <div class="sub-total" id="subtotal">$0.00</div>
         </div>
       </div>
       <div class="row">
-        <div class="item-name col-xs-2">
+        <div class="item-name col-xs-3">
           Chicken
         </div>
-        <div class="item-price col-xs-3">
+        <div class="item-price col-xs-2">
           $25.00
         </div>
-        <div class="item-qty col-xs-5">
+        <div class="item-qty col-xs-7 col-sm-5">
           <label>QTY</label>
           <input class="quantity">
           <button class="cancel">
             Cancel
           </button>
         </div>
-        <div class="sub-total-wrap col-xs-2">
-          <div class="sub-total" id="subtotal6">$0.00</div>
+        <div class="sub-total-wrap hidden-xs col-sm-2">
+          <div class="sub-total" id="subtotal">$0.00</div>
         </div>
       </div>
       <div class="row">
-        <div class="item-name col-xs-2">
+        <div class="item-name col-xs-3">
           Cereal
         </div>
-        <div class="item-price col-xs-3">
+        <div class="item-price col-xs-2">
           $45.00
         </div>
-        <div class="item-qty col-xs-5">
+        <div class="item-qty col-xs-7 col-sm-5">
           <label>QTY</label>
           <input class="quantity">
           <button class="cancel">
             Cancel
           </button>
         </div>
-        <div class="sub-total-wrap col-xs-2">
-          <div class="sub-total" id="subtotal7">$0.00</div>
+        <div class="sub-total-wrap hidden-xs col-sm-2">
+          <div class="sub-total" id="subtotal">$0.00</div>
         </div>
       </div>
       <div class="row">
-        <div class="item-name col-xs-2">
+        <div class="item-name col-xs-3">
           Milk
         </div>
-        <div class="item-price col-xs-3">
+        <div class="item-price col-xs-2">
           $20.00
         </div>
-        <div class="item-qty col-xs-5">
+        <div class="item-qty col-xs-7 col-sm-5">
           <label>QTY</label>
           <input class="quantity">
           <button class="cancel">
             Cancel
           </button>
         </div>
-        <div class="sub-total-wrap col-xs-2">
-          <div class="sub-total" id="subtotal8">$0.00</div>
+        <div class="sub-total-wrap hidden-xs col-sm-2">
+          <div class="sub-total" id="subtotal">$0.00</div>
         </div>
       </div>
+      
       <div class="row">
-        <div class="item-name col-xs-2">
+        <div class="item-name col-xs-3">
           Sugar
         </div>
-        <div class="item-price col-xs-3">
+        <div class="item-price col-xs-2">
           $10.00
         </div>
-        <div class="item-qty col-xs-5">
+        <div class="item-qty col-xs-7 col-sm-5">
           <label>QTY</label>
           <input class="quantity">
           <button class="cancel">
             Cancel
           </button>
         </div>
-        <div class="sub-total-wrap col-xs-2">
-          <div class="sub-total" id="subtotal9">$0.00</div>
+        <div class="sub-total-wrap hidden-xs col-sm-2">
+          <div class="sub-total" id="subtotal">$0.00</div>
         </div>
       </div>
-      <div class="row">
-        <div class="col-xs-2 col-xs-offset-10">
-          <button id="calc-price-button" type="button" data-button='{"id": "3424"}' class="btn btn-success">
-            Calculate Prices
+
+      <div class="row input-new">
+        <div class="input-item-wrapper col-xs-3">
+          <input class="input-item">
+        </div>
+        <div class="input-price-wrapper col-xs-2">
+          <input class="input-price">
+        </div>
+        <div class="create-button-wrapper col-xs-7 col-sm-5">
+          <button class="create">
+            Create
           </button>
         </div>
       </div>
-      <div class="row">
-        <div class="total-price-wrap col-xs-8 col-xs-offset-4">
+
+      <div class="row last-row">
+        <div class="total-price-wrap col-xs-9 col-sm-10">
           <h1 class="total-price-label">Total Price: <span id="total-price">$--.--</span></h1>
+        </div>
+        <div class="calc-row col-xs-1 col-sm-2">
+          <button id="calc-price-button" type="button" data-button='{"id": "3424"}' class="btn btn-success">
+            Calculate
+          </button>
         </div>
       </div>
     </section>

@@ -1,110 +1,86 @@
 $('document').ready(function() {
-  
-var totalLog = 0;
-var grandTotalElement = document.getElementById('total-price');
 
-//INDIVIDUAL SUBTOTALS
-  $('#item-qty1').on('input',function() {
-    var price = $('#item-price1').text();
-    var priceToNum = Number(price.replace(/[^0-9\.-]+/g,""));
+  // CALCULATE SUBTOTALS
+  var elementTotalPrice = $('#total-price')[0];
 
-    var quantity = $('#item-qty1').val();
-    var quantityToNum = Number(quantity);
+  $(document).on('input', '.quantity', function() {
+    if ( isNaN( $(this).val() ) == true ) {
+      alert("Please Input A Valid Number");
+    } 
+    else {
+      var price = $($(this).parent().parent().children()[1]).text();
+      var priceToNum = Number(price.replace("$",""));
 
-    var subtotal = priceToNum * quantityToNum;
-    var subTotalElement = document.getElementById('subtotal1');
-    subTotalElement.innerText = "$" + subtotal.toFixed(2);
+      var quantity = $(this).val();
+      var quantityToNum = Number(quantity);
 
-    totalLog = totalLog + Number(subtotal.toFixed(2));
-    grandTotalElement.innerText = "$" + totalLog.toFixed(2);
+      var elementSubTotal = $($(this).parent().siblings()[2]).children()[0];
+      elementSubTotal.innerText = "$" + (priceToNum * quantityToNum).toFixed(2);
+      grandTotalCalc();
+    }
   })
+
+  //CALCULATE GRANDTOTAL
+  function grandTotalCalc() {
+  var grandTotal = 0;
     
-    // if ($('#item-qty1') !== true) {
-    //   totalLog = totalLog - Number(subtotal.toFixed(2));
-    // }
+    for (var i = 0; i <= $('.sub-total').length; i++) {
+      var subtotal = $($('.sub-total')[i]).text();
+      var subtotalToNum = Number(subtotal.replace("$",""));
+      grandTotal = grandTotal + subtotalToNum;
+    }
+    elementTotalPrice.innerText = "$" + grandTotal.toFixed(2);
+  }
 
-//INDIVIDUAL SUBTOTALS
-  $('#item-qty2').on('input',function() {
-    var price2 = $('#item-price2').text();
-    var priceToNum2 = Number(price2.replace(/[^0-9\.-]+/g,""));
-
-    var quantity2 = $('#item-qty2').val();
-    var quantityToNum2 = Number(quantity2);
-
-    var subtotal2 = priceToNum2 * quantityToNum2;
-    var subTotalElement2 = document.getElementById('subtotal2');
-    subTotalElement2.innerText = "$" + subtotal2.toFixed(2);
-
-    totalLog = totalLog + Number(subtotal2.toFixed(2));
-    grandTotalElement.innerText = "$" + totalLog.toFixed(2);
+  //CANCEL BUTTON
+  $(document).on('click', '.cancel', function() {
+    var subTotalToDelete = $($(this).parent().siblings()[2]).children()[0];
+    subTotalToDelete.innerText = "$0.00";
+    
+    $($($(this).parent()).parent()).fadeOut(1000);
+    grandTotalCalc();
   })
 
-    // if ($('#item-qty2') !== true) {
-    //   totalLog = totalLog - Number(subtotal2.toFixed(2));
-    // }
-
-  //INDIVIDUAL CANCEL BUTTON
-  $('.cancel1').click(function() {
-    $($($('.cancel1').parent()).parent()).fadeOut(1000);
+  //CALCULATE GRANDTOTAL BUTTON
+  $('#calc-price-button').click(function() {
+    grandTotalCalc();
   })
 
-  $('.cancel2').click(function() {
-    $($($('.cancel2').parent()).parent()).fadeOut(1000);
-  })
+  //ADD ITEMS
+  $('.create').click(function() {
 
-  var calculatedTotal = 0;
+  if ( isNaN($('.input-price').val()) == true ) {
+      alert("Please Input A Valid Number");
+    }
+    else {
+    var newItem = $('.input-item').val();
+    var newPrice = $('.input-price').val();
+    var newPriceToNum = Number(newPrice);
 
-  // CALC BUTTON
-  // $('#calc-price-button').click(function() {
-  //   calculatedTotal = 
-  //   Number( $('#subtotal1').text() .replace(/[^0-9\.-]+/g,"")) +
-  //   Number( $('#subtotal2').text() .replace(/[^0-9\.-]+/g,"")) +
-  //   Number( $('#subtotal3').text() .replace(/[^0-9\.-]+/g,"")) +
-  //   Number( $('#subtotal4').text() .replace(/[^0-9\.-]+/g,"")) +
-  //   Number( $('#subtotal5').text() .replace(/[^0-9\.-]+/g,"")) +
-  //   Number( $('#subtotal6').text() .replace(/[^0-9\.-]+/g,"")) +
-  //   Number( $('#subtotal7').text() .replace(/[^0-9\.-]+/g,"")) +
-  //   Number( $('#subtotal8').text() .replace(/[^0-9\.-]+/g,"")) +
-  //   Number( $('#subtotal9').text() .replace(/[^0-9\.-]+/g,""));
-  //   grandTotalElement.innerText = "$" + calculatedTotal.toFixed(2);
+    var newHTML = '<div class="row"> \
+                    <div class="item-name col-xs-3"> \
+                      ProductName \
+                    </div> \
+                    <div class="item-price col-xs-2"> \
+                      Price \
+                    </div> \
+                    <div class="item-qty col-xs-7 col-sm-5"> \
+                      <label>QTY</label> \
+                      <input class="quantity"> \
+                      <button class="cancel"> \
+                        Cancel \
+                      </button> \
+                    </div> \
+                    <div class="sub-total-wrap hidden-xs col-sm-2"> \
+                      <div class="sub-total" id="subtotal">$0.00</div> \
+                    </div> \
+                  </div>';
 
-  // })
+    $('.input-new').before(newHTML);
+    
+    var newInputRow = $('.input-new').prev();
+    newInputRow.children()[0].innerText = newItem;
+    newInputRow.children()[1].innerText = "$" + newPriceToNum.toFixed(2);
+  }})
 
 })
-
-
-
-
-
-
-// FIRST SUBTOTAL
-//   function getTotalPrice () {
-//     var price = $($('.item-price').first()).text();
-//     var priceToNum = Number(price.replace(/[^0-9\.-]+/g,""));
-
-//     var quantity = $('.quantity').val();
-//     var quantityToNum = Number(quantity);
-
-//     var subtotal = priceToNum * quantityToNum;
-    
-//     var subTotalElement = document.getElementById('subtotal1');
-//     subTotalElement.innerText = "$" + subtotal.toFixed(2);
-
-//     totalLog = totalLog + Number(subtotal.toFixed(2));
-
-//     var grandTotalElement = document.getElementById('total-price');
-//     grandTotalElement.innerText = "$" + totalLog.toFixed(2);
-
-//   }
-
-// $('.quantity').on('input',function() {
-//   getTotalPrice();
-//   })
-
-
-//Create An Array With Prices
-// var itemPriceArray = [];
-// for (var i = 0; i < $('.item-price').length; i++) {
-//   var price = $($('.item-price')[0]).text();
-//   itemPriceArray.push(price);
-// }
