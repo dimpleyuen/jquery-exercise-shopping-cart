@@ -81,6 +81,10 @@ $('document').ready(function() {
     var newInputRow = $('.input-new').prev();
     newInputRow.children()[0].innerText = newItem;
     newInputRow.children()[1].innerText = "$" + newPriceToNum.toFixed(2);
+
+    $('form')[0].reset();
+    $('form')[1].reset();
+
   }})
 
 })
